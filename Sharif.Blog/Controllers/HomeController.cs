@@ -22,6 +22,12 @@ namespace Sharif.Blog.Controllers
         {
             return View();
         }
+        
+        // 时间轴
+        public IActionResult Timeline()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
