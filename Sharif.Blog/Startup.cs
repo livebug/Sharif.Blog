@@ -32,6 +32,7 @@ namespace Sharif.Blog
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {

@@ -84,7 +84,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
     line-height: 1.5;
-    margin:0 15% 0 15%;
+    margin: 0 15% 0 15%;
 }
 
     .timeline-group h1, h2, h3, h4, h5, h6 {
@@ -112,16 +112,17 @@ body {
         font-size: 1rem;
     }
 
+    /* 时间标题 */
     .timeline-item::before {
         content: attr(date-is);
         position: absolute;
         left: 2rem;
         font-weight: bold;
-        top: 1rem;
+        top: .8rem;
         display: block;
-        font-family: 'Roboto', sans-serif;
+        font-family: Consolas, sans-serif;
         font-weight: 700;
-        font-size: .785rem;
+        font-size: 1rem;
     }
     /* 圆圈 */
     .timeline-item::after {
@@ -148,10 +149,18 @@ body {
 https://www.cnblogs.com/weihuan/p/11681831.html
 --------------------------------*/
 /*body {
-    overflow:scroll;
-    overflow-x:hidden;
+    overflow: scroll;
+    overflow-y: hidden;
 }*/
 
 body {
+    min-height: 75rem;
+}
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+/*body {
     min-height:75rem;
 }
+*/
