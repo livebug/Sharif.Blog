@@ -155,6 +155,8 @@ https://www.cnblogs.com/weihuan/p/11681831.html
 
 body {
     min-height: 75rem;
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
 }
 
     body::-webkit-scrollbar {
