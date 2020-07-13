@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sharif.Blog</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/editormd.preview.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">标签</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">文章</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Article">文章</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Timeline">时间轴</a>
@@ -57,7 +58,21 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/md/editormd.min.js"></script>
+    <script src="~/lib/md/marked.min.js"></script>
+    <script src="~/lib/md/prettify.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                markdown: "[TOC]\n @ViewData["articleContent"]", // Also, you can dynamic set Markdown text
+                htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+            });
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

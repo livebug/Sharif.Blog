@@ -146,23 +146,35 @@ body {
 
 /*
 滚动条出现挤压页面宽度，影响布局
-https://www.cnblogs.com/weihuan/p/11681831.html
 --------------------------------*/
-/*body {
-    overflow: scroll;
-    overflow-y: hidden;
-}*/
 
 body {
     min-height: 75rem;
     -ms-overflow-style: none; /* IE 10+ */
     scrollbar-width: none; /* Firefox */
+    overflow: scroll;
 }
 
-    body::-webkit-scrollbar {
+/*    body::-webkit-scrollbar {
         display: none;
-    }
-/*body {
-    min-height:75rem;
+    }*/
+
+:target {
+    padding-top: 66px;
 }
+
+
+/*
+    遇到的一个问题 
+    当使用导航栏时，
+    点击md文档的目录，会导航到相应的锚点
+    但是锚点会在页面顶部，顶部的导航栏会遮挡
+    导致的效果是：点击跳转，但标题被遮盖
+
+    解决办法 如下：
+（4）:target伪类
+:target CSS 伪类 代表一个唯一的页面元素(目标元素)，其id 与当前URL片段匹配 .
+
+    参考地址：
+
 */

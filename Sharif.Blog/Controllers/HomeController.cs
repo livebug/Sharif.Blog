@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sharif.Blog.Models;
+using Sharif.Blog.Services;
 
 namespace Sharif.Blog.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMarkdownService _md;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IMarkdownService md)
         {
             _logger = logger;
+            _md = md;
         }
 
         public IActionResult Index()
@@ -26,6 +29,18 @@ namespace Sharif.Blog.Controllers
         // 时间轴
         public IActionResult Timeline()
         {
+            return View();
+        }
+
+        // 文章
+        public IActionResult Article()
+        {
+
+            // 读取文件
+
+            // 
+            string mdStr = _md.GetContent();
+            ViewData["articleContent"] = mdStr;
             return View();
         }
 
