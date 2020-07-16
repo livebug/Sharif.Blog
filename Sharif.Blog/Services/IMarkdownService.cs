@@ -7,6 +7,6 @@ namespace Sharif.Blog.Services
 {
     public interface IMarkdownService
     {
-        public string GetContent();
+        public Task<string> GetContentAsync();
     }
 }

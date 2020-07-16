@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -33,14 +34,11 @@ namespace Sharif.Blog.Controllers
         }
 
         // 文章
-        public IActionResult Article()
+        [HttpGet("Article")]
+        public async Task<IActionResult> ArticleAsync()
         {
-
-            // 读取文件
-
-            // 
-            string mdStr = _md.GetContent();
-            ViewData["articleContent"] = mdStr;
+            string content = await _md.GetContentAsync();
+            ViewData["articleContent"] = Regex.Escape(content);
             return View();
         }
 
