@@ -25,6 +25,7 @@ namespace Sharif.Blog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpClient();
             services.AddSingleton<IMarkdownService, MarkdownService>();
         }
 
