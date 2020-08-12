@@ -1,4 +1,33 @@
 ﻿<div class="timeline-group">
+    <div class="timeline-item" date-is='2020-08-11'>
+        <h1>修改文件目录获取API</h1>
+        <p>
+            1. https://api.github.com/repos/livebug/blogs/contents/md{/path}<br />
+            返回仓库文件目录<br />
+            2. [JsonConverter(typeof(JsonStringEnumConverter))] 对枚举类型进行json序列化和反序列化的特性标签
+        </p>
+    </div>
+    <div class="timeline-item" date-is='2020-08-10'>
+        <h1>添加GithubApi支持-获取文件树</h1>
+        <p>
+            https://api.github.com/repos/livebug/blogs/git/trees/{sha}
+        </p>
+    </div>
+    <div class="timeline-item" date-is='2020-08-08'>
+        <h1>处理github api 返回403 问题</h1>
+        <p>
+            需要在请求头部添加
+            "User-Agent:livebug" <br />
+            <a href=" https://developer.github.com/v3/#user-agent-required"> https://developer.github.com/v3/#user-agent-required</a>
+        </p>
+    </div>
+    <div class="timeline-item" date-is='2020-08-01'>
+        <h1>添加giehubService中间件</h1>
+        <p>
+            services.AddHttpClient&lt;GithubService&gt;(); <br />
+            并初步测试api使用
+        </p>
+    </div>
     <div class="timeline-item" date-is='2020-07-16'>
         <h1>测试使用github做博客仓库</h1>
         <p>

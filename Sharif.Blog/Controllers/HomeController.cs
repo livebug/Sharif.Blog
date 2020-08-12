@@ -37,9 +37,23 @@ namespace Sharif.Blog.Controllers
         [HttpGet("Article")]
         public async Task<IActionResult> ArticleAsync()
         {
-            string content = await _md.GetContentAsync();
+            string content = await _md.GetMDArticleAsync();
             ViewData["articleContent"] = Regex.Escape(content);
             return View();
+        }
+
+        // 目录
+        [HttpGet("Contents")]
+        public async Task<IActionResult> ContentsAsync()
+        {
+            _logger.LogInformation("Get Contents Page. start");
+            var contents = await _md.GetMDContentsAsync();
+            if(contents == null)
+            {
+                _logger.LogError("Contents is null.");
+                contents = await _md.GetMDContentsAsync();
+            }
+            return View(contents);
         }
 
         public IActionResult Privacy()
