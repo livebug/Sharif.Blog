@@ -37,6 +37,13 @@ namespace Sharif.Blog.Services
             return content;
         }
 
+        public async Task<string> GetMDArticleAsync(string name)
+        {
+            _looger.LogInformation("Get markdown article content.");
+            string content = await _github.GetStringAsync("https://raw.githubusercontent.com/livebug/blogs/master/md/" + name);
+            return content;
+        }
+
         /// <summary>
         /// 获取博客文章目录
         /// </summary>
@@ -44,11 +51,11 @@ namespace Sharif.Blog.Services
         public async Task<IEnumerable<ContentsViewModel>> GetMDContentsAsync()
         {
             _looger.LogInformation("Get Blog Contents.");
-            var blobs = await _github.GetGithubRepoBlobsAsync();
-            if (blobs != null && blobs.Count() > 0)
+            var contents = await _github.GetGithubReposContentsAsync();
+            if (contents != null && contents.Count() > 0)
             {
                 _looger.LogInformation("Get Blog Contents. successfully");
-                return (IEnumerable<ContentsViewModel>)blobs.Where(e => e.ContentsType != ContentsType.Dir).Select(e => new ContentsViewModel
+                return (IEnumerable<ContentsViewModel>)contents.Where(e => e.ContentsType != ContentsType.Dir).Select(e => new ContentsViewModel
                 {
                     ID = e.Sha,
                     Name = e.Name
@@ -56,7 +63,7 @@ namespace Sharif.Blog.Services
             }
             else
             {
-                if (blobs == null || blobs?.Count() == 0)
+                if (contents == null || contents?.Count() == 0)
                 {
                     _looger.LogError("api未获取到内容。");
                 }

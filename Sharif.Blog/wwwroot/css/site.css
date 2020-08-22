@@ -151,8 +151,8 @@ body {
 body {
     min-height: 75rem;
     -ms-overflow-style: none; /* IE 10+ */
-    scrollbar-width: none; /* Firefox */
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 /*    body::-webkit-scrollbar {

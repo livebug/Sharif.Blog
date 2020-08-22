@@ -9,6 +9,7 @@ namespace Sharif.Blog.Services
     public interface IMarkdownService
     {
         public Task<string> GetMDArticleAsync();
+        public Task<string> GetMDArticleAsync(string name);
         public Task<IEnumerable<ContentsViewModel>> GetMDContentsAsync();
     }
 }

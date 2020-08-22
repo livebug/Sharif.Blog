@@ -16,7 +16,7 @@ namespace Sharif.Blog.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IMarkdownService _md;
 
-        public HomeController(ILogger<HomeController> logger,IMarkdownService md)
+        public HomeController(ILogger<HomeController> logger, IMarkdownService md)
         {
             _logger = logger;
             _md = md;
@@ -26,7 +26,7 @@ namespace Sharif.Blog.Controllers
         {
             return View();
         }
-        
+
         // 时间轴
         public IActionResult Timeline()
         {
@@ -34,10 +34,11 @@ namespace Sharif.Blog.Controllers
         }
 
         // 文章
-        [HttpGet("Article")]
-        public async Task<IActionResult> ArticleAsync()
+        [HttpGet("Article/{name}")]
+        public async Task<IActionResult> ArticleAsync(string name)
         {
-            string content = await _md.GetMDArticleAsync();
+            string content = await _md.GetMDArticleAsync(name);
+            ViewData["Title"] = name;
             ViewData["articleContent"] = Regex.Escape(content);
             return View();
         }
@@ -48,11 +49,17 @@ namespace Sharif.Blog.Controllers
         {
             _logger.LogInformation("Get Contents Page. start");
             var contents = await _md.GetMDContentsAsync();
-            if(contents == null)
+            if (contents == null)
             {
-                _logger.LogError("Contents is null.");
+                _logger.LogError("第一次获取失败.进行第二次获取");
                 contents = await _md.GetMDContentsAsync();
+                if (contents == null)
+                {
+                    _logger.LogError("第一次获取失败.第二次获取失败.");
+                }
+                _logger.LogError("第一次获取失败.第二次获取成功.");
             }
+            _logger.LogInformation("第一次获取成功");
             return View(contents);
         }
 

@@ -1,41 +1,63 @@
 ﻿<div class="timeline-group">
-    <div class="timeline-item" date-is='2020-08-11'>
+    <div class="timeline-item" date-is="2020-08-17">
+        <h1>修改文件目录获取API</h1>
+        <p>
+            1.在学习了远程文件系统之后，有一个想法，就是拿github或者gitee来做远程文件系统，
+            在以后可能补充其他远程文件系统，就是指需要提供远程文件系统的根路径，即跟api，
+            然后跟api下的文件结构，符合要求的文件结构即可。<br />
+            2.减少对博客内容编写的限制，目前遇到的是博客里相对路径的转换，主要是图片的路径，
+            把相对路径转换为绝对路径。
+            3.修改时间轴页面，是时间轴页面支持不同的分辨率显示器
+
+        </p>
+    </div>
+    <div class="timeline-item" date-is="2020-08-11">
         <h1>修改文件目录获取API</h1>
         <p>
             1. https://api.github.com/repos/livebug/blogs/contents/md{/path}<br />
             返回仓库文件目录<br />
-            2. [JsonConverter(typeof(JsonStringEnumConverter))] 对枚举类型进行json序列化和反序列化的特性标签
+            2. [JsonConverter(typeof(JsonStringEnumConverter))]
+            对枚举类型进行json序列化和反序列化的特性标签
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-08-10'>
+    <div class="timeline-item" date-is="2020-08-11">
+        <h1>修改文件目录获取API</h1>
+        <p>
+            1. https://api.github.com/repos/livebug/blogs/contents/md{/path}<br />
+            返回仓库文件目录<br />
+            2. [JsonConverter(typeof(JsonStringEnumConverter))]
+            对枚举类型进行json序列化和反序列化的特性标签
+        </p>
+    </div>
+    <div class="timeline-item" date-is="2020-08-10">
         <h1>添加GithubApi支持-获取文件树</h1>
         <p>
             https://api.github.com/repos/livebug/blogs/git/trees/{sha}
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-08-08'>
+    <div class="timeline-item" date-is="2020-08-08">
         <h1>处理github api 返回403 问题</h1>
         <p>
-            需要在请求头部添加
-            "User-Agent:livebug" <br />
-            <a href=" https://developer.github.com/v3/#user-agent-required"> https://developer.github.com/v3/#user-agent-required</a>
+            需要在请求头部添加 "User-Agent:livebug" <br />
+            <a href=" https://developer.github.com/v3/#user-agent-required">
+                https://developer.github.com/v3/#user-agent-required</a>
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-08-01'>
+    <div class="timeline-item" date-is="2020-08-01">
         <h1>添加giehubService中间件</h1>
         <p>
             services.AddHttpClient&lt;GithubService&gt;(); <br />
             并初步测试api使用
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-07-16'>
+    <div class="timeline-item" date-is="2020-07-16">
         <h1>测试使用github做博客仓库</h1>
         <p>
             使用 github api 来访问github中的博客文章；
             计划：是不是可把配置写进github中，然后读取？
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-07-14'>
+    <div class="timeline-item" date-is="2020-07-14">
         <h1>更改文章页面模板</h1>
         <p>
             更改文章页面模板使用同一模板；<br />
@@ -43,25 +65,25 @@
             处理滚动条为一直显示（一直隐藏滚动条的方案没有找到）；
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-07-04'>
+    <div class="timeline-item" date-is="2020-07-04">
         <h1>添加文章页面</h1>
         <p>
             使用editormd.js来处理markdown文件，添加文章页面
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-06-22'>
+    <div class="timeline-item" date-is="2020-06-22">
         <h1>修改滚动条样式</h1>
         <p>
             隐藏滚动条，但是依然可以滚动，根据不同的浏览器进行设置，这样防止滚动条的弹出使页面抖动
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-06-21'>
+    <div class="timeline-item" date-is="2020-06-21">
         <h1>添加时间轴页面</h1>
         <p>
             添加简易时间轴，并填写时间轴事件
         </p>
     </div>
-    <div class="timeline-item" date-is='2020-06-15'>
+    <div class="timeline-item" date-is="2020-06-15">
         <h1>初始化项目</h1>
         <p>
             使用 asp.net core mvc 做一个博格，初设菜单栏。

@@ -45,11 +45,15 @@ namespace Sharif.Blog.Services
 
 
         // 获取某路径下内容
+        internal async Task<string> GetGithubReposBlobsRaw(string filename)
+        {
+            return await Client.GetStringAsync(filename);
+        }
 
         /// <summary>
         ///  获取目录结构
         /// </summary>
-        internal async Task<IEnumerable<GithubReposContents>> GetGithubRepoBlobsAsync()
+        internal async Task<IEnumerable<GithubReposContents>> GetGithubReposContentsAsync()
         {
             if (_githubReposContents == null || (DateTime.Now - InitDateTime).TotalSeconds > 3000)
             {
